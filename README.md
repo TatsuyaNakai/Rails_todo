@@ -1,24 +1,39 @@
-# README
+### props がなぜ値を渡せているのか、何を渡しているのかがわかりませんでした。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+/app/javascript/components/EditTodo.js における
+関数コンポーネントの props が何を指しているのかわかりませんでした。
+EditTodo コンポーネントを扱う App.js では、
+Route タグの属性値にはパスと component={EditTodo}の記述だけでした。
+debugger で確認したところ、History であったり、match のような全体を説明するようなものが格納されていました。
 
-Things you may want to cover:
+今までの props の感覚であれば親コンポーネントからもらう時には、
 
-* Ruby version
+#### 親コンポーネントであれば、
 
-* System dependencies
+import React from "react";
+import ChildNode from "./components/ChildNode";
 
-* Configuration
+export default function App() {
+return (
+<div>
+<ChildNode title="りんご" />
+</div>
+);
+}
 
-* Database creation
+#### 子コンポーネントにて
 
-* Database initialization
+import React from "react";
 
-* How to run the test suite
+export default function ChildNode(props) {
+return (
+<div>
+<h1>{props.title}</h1>
+</div>
+);
+}
 
-* Services (job queues, cache servers, search engines, etc.)
+で受け取っていましたが、今回は何も明示せずに渡しているので、わかりませんでした。
+component 属性について調べましたが、表示するコンポーネントを指定しているのみなのかなというところでした。
 
-* Deployment instructions
-
-* ...
+久しぶりの React で知識が抜けているのかもしれません、僕も現在進行形で調べはしていますが、教えていただきたいです！！
