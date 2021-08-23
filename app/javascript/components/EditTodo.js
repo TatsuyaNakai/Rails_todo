@@ -90,7 +90,6 @@ export default function EditTodo(props) {
 		// event.targetはオブジェクトになってる。
 		let hoge = currentTodo;
 		// nameには、inputのname属性、valueには入力した文字列が入る。
-		debugger;
 		setCurrentTodo({ ...currentTodo, [name]: value });
 		// name属性をキーに、値は入力した値を格納して、オブジェクトを作る。
 	};
